@@ -1,4 +1,12 @@
 # https://www.mysqltutorial.org/wp-content/uploads/2018/09/mysql-window-functions-frame-clause-bound.png
+# https://www.mysqltutorial.org/mysql-window-functions/
+#    window_function_name(expression) OVER ( 
+#       [partition_defintion]
+#       [order_definition]
+#       [frame_definition]
+#    )
+
+
 
 CREATE TABLE t_win(x int AUTO_INCREMENT PRIMARY KEY);
 
@@ -478,3 +486,7 @@ FROM emp WINDOW s AS (PARTITION BY department
                       ORDER BY salary DESC)
 ORDER BY department,
          salary DESC;
+         
+         
+         
+         SELECT ROW_NUMBER() OVER w, Year, Product, Sale, COUNT(Sale) OVER w AS COUNT_LEAD_FUNC, LEAD(Sale) OVER w AS LEAD_FUNC, COUNT(Sale) OVER w AS COUNT_LAG_FUNC, LAG(Sale) OVER w AS LAG_FUNC, SUM(Sale) OVER w AS SUM_SALE, FIRST_VALUE(Sale) OVER w AS FIRST_VALUE_FUNC, LAST_VALUE(Sale) OVER w AS LAST_VALUE_FUNC FROM Sales window w AS (ROWS UNBOUNDED PRECEDING);

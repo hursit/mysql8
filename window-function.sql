@@ -1,3 +1,5 @@
+# https://www.mysqltutorial.org/wp-content/uploads/2018/09/mysql-window-functions-frame-clause-bound.png
+
 CREATE TABLE t_win(x int AUTO_INCREMENT PRIMARY KEY);
 
 
